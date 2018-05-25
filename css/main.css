@@ -1,0 +1,84 @@
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  display: grid;
+  grid-gap: 4px;
+  grid-template-areas:
+  "head"
+  "btn"
+  "fcc"
+  "streams"
+  "foot";
+  background: grey;
+}
+
+header {
+  grid-area: head;
+  text-align: center;
+  background: pink;
+}
+
+footer {
+  grid-area: foot;
+  background: pink;
+}
+
+section {
+  background: palegreen;
+  border: 1px solid black;
+}
+
+.buttonsWrapper {
+  grid-area: btn;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 1em;
+}
+
+.fccWrapper {
+  grid-area: fcc;
+}
+
+.streamsWrapper {
+  grid-area: streams;
+}
+
+section > article {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1rem;
+}
+
+section > article > img {
+  width: 100px;
+  height: 100px;
+}
+
+/* Breakpoint */
+
+@media only screen 
+   and (min-width : 1024px) {
+    body {
+      grid-gap: 4px;
+      grid-template-areas:
+      "head head head"
+      ". fcc ."
+      "btn streams ."
+      "btn streams ."
+      ". streams ."
+      "foot foot foot";
+    }
+
+    .buttonsWrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-around;
+    }
+}
