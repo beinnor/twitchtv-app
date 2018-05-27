@@ -2,13 +2,14 @@ html {
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
+  font-size: 16px;
 }
 
 body {
   width: 100%;
   min-height: 100%;
   display: grid;
-  grid-gap: 4px;
+  grid-template-rows: 4rem 4rem auto auto 4rem;
   grid-template-areas:
   "head"
   "btn"
@@ -16,17 +17,21 @@ body {
   "streams"
   "foot";
   background: grey;
+  justify-items: center;
 }
 
 header {
   grid-area: head;
   text-align: center;
   background: pink;
+  width: 100%;
 }
 
 footer {
   grid-area: foot;
   background: pink;
+  text-align: center;
+  width: 100%;
 }
 
 section {
@@ -38,16 +43,44 @@ section {
   grid-area: btn;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
-  padding: 1em;
+  justify-content: space-evenly;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+/* Style the buttons inside the tab */
+.buttonsWrapper button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  width: 10rem;
+}
+
+/* Change background color of buttons on hover */
+.buttonsWrapper button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.buttonsWrapper button.active {
+  background-color: #ccc;
 }
 
 .fccWrapper {
   grid-area: fcc;
+  width: 100%;
 }
 
 .streamsWrapper {
   grid-area: streams;
+  width: 100%;
 }
 
 section > article {
@@ -65,20 +98,10 @@ section > article > img {
 
 @media only screen 
    and (min-width : 1024px) {
-    body {
-      grid-gap: 4px;
-      grid-template-areas:
-      "head head head"
-      ". fcc ."
-      "btn streams ."
-      "btn streams ."
-      ". streams ."
-      "foot foot foot";
-    }
-
-    .buttonsWrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: space-around;
-    }
+  .fccWrapper {
+    width: 80%;
+  }
+  .streamsWrapper {
+    width: 80%;
+  }
 }

@@ -14,6 +14,9 @@ allBtn.addEventListener("click", function () {
   for (let elem of elements) {
     elem.style.display = "";
   }
+  allBtn.className = "active";
+  onlineBtn.className = "";
+  offlineBtn.className = "";
 });
 onlineBtn.addEventListener("click", function () {
   let elements = document.getElementsByClassName("offline");
@@ -24,6 +27,9 @@ onlineBtn.addEventListener("click", function () {
   for (let elem of elements) {
     elem.style.display = "";
   }
+  allBtn.className = "";
+  onlineBtn.className = "active";
+  offlineBtn.className = "";
 });
 
 offlineBtn.addEventListener("click", function () {
@@ -35,6 +41,9 @@ offlineBtn.addEventListener("click", function () {
   for (let elem of elements) {
     elem.style.display = "";
   }
+  allBtn.className = "";
+  onlineBtn.className = "";
+  offlineBtn.className = "active";
 });
 
 function main() {
