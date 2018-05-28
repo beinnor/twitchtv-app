@@ -1,81 +1,97 @@
+:root {
+  --color-primary-0: #857DB1;
+  /* Main Primary color */
+  --color-primary-1: #DBD8EA;
+  --color-primary-2: #B1ACD0;
+  --color-primary-3: #5F5695;
+  --color-primary-4: #3C3176;
+  --color-secondary-1-0: #FFFCAA;
+  /* Main Secondary color (1) */
+  --color-secondary-1-1: #FFFEE8;
+  --color-secondary-1-2: #FFFDCC;
+  --color-secondary-1-3: #D7D46E;
+  --color-secondary-1-4: #AAA639;
+  --color-font: #0E1111;
+}
+
 html {
   height: 100%;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
+  color: var(--color-font);
 }
 
 body {
   width: 100%;
   min-height: 100%;
   display: grid;
-  grid-template-rows: 4rem 4rem auto auto 4rem;
-  grid-template-areas:
-  "head"
-  "btn"
-  "fcc"
-  "streams"
-  "foot";
-  background: grey;
-  justify-items: center;
+  grid-template-rows: max-content max-content max-content auto max-content;
+  grid-template-areas: "head" "btn" "fcc" "streams" "foot";
+  background: var(--color-secondary-1-1);
 }
 
 header {
   grid-area: head;
   text-align: center;
-  background: pink;
+  background: var(--color-primary-3);
   width: 100%;
 }
 
 footer {
   grid-area: foot;
-  background: pink;
+  background: var(--color-primary-2);
   text-align: center;
   width: 100%;
+  border-top: 1px solid var(--color-font);
 }
 
 section {
-  background: palegreen;
-  border: 1px solid black;
+  background: var(--color-primary-1);
+  margin: 0 auto 0 auto;
 }
+
+/* Buttons */
 
 .buttonsWrapper {
   grid-area: btn;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: stretch;
+  border-top: 1px solid var(--color-font);
+  border-bottom: 1px solid var(--color-font);
+  background-color: var(--color-primary-1);
   width: 100%;
+  overflow: hidden;
 }
 
-/* Style the buttons inside the tab */
 .buttonsWrapper button {
   background-color: inherit;
-  float: left;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 16px;
+  padding: 1rem;
   transition: 0.3s;
-  font-size: 17px;
-  width: 10rem;
+  font-size: 1rem;
+  width: 100%;
 }
 
-/* Change background color of buttons on hover */
 .buttonsWrapper button:hover {
-  background-color: #ddd;
+  background-color: var(--color-primary-0);
 }
 
-/* Create an active/current tablink class */
 .buttonsWrapper button.active {
-  background-color: #ccc;
+  background-color: var(--color-primary-2);
 }
+
+/* Streams */
 
 .fccWrapper {
   grid-area: fcc;
   width: 100%;
+  border-bottom: 1px solid var(--color-font);
 }
 
 .streamsWrapper {
@@ -83,25 +99,50 @@ section {
   width: 100%;
 }
 
-section > article {
-  display: flex;
-  flex-flow: row wrap;
+section>article {
+  display: grid;
+  grid-template-areas: "img channel" "img status";
   padding: 1rem;
+  max-width: 100%;
+  justify-content: start;
+  grid-column-gap: 2rem;
 }
 
-section > article > img {
-  width: 100px;
-  height: 100px;
+article>a {
+  grid-area: channel;
+}
+
+article>p {
+  grid-area: status;
+}
+
+article>img {
+  grid-area: img;
+  width: 5rem;
+  height: 5rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-primary-4);
+}
+
+a:hover {
+  color: var(--color-primary-3);
+  text-decoration: underline;
 }
 
 /* Breakpoint */
 
-@media only screen 
-   and (min-width : 1024px) {
+@media only screen and (min-width: 1024px) {
   .fccWrapper {
     width: 80%;
+    margin: 1rem auto 1rem auto;
+    border: 1px solid var(--color-font);
   }
   .streamsWrapper {
     width: 80%;
+    margin: 1rem auto 1rem auto;
+    border: 1px solid var(--color-font);
   }
 }
